@@ -1,9 +1,9 @@
 export interface ITasks {
-  _id: string ;
+  _id: string;
   title: string;
   isCompleted: boolean;
 }
-export interface IUsers {
+export interface s {
   _id: string | number;
   username: string;
   email: string;
@@ -21,4 +21,3 @@ export interface TodoItemProps {
   onUpdate: (id: string, newTitle: string) => void;
   onComplete: (id: string, isCompleted: boolean) => void;
 }
-
