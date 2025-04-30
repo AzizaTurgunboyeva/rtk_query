@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ITasks, IUsers } from "../types";
+import { ITasks, IUser } from "../types";
 
 export const todoApi = createApi({
   reducerPath: "todoApi",
@@ -50,11 +50,11 @@ export const todoApi = createApi({
       invalidatesTags: ["Todo"],
     }),
     // USERS (new)
-    getUsers: builder.query<IUsers[], void>({
+    getUsers: builder.query<IUser[], void>({
       query: () => "users", // Adjust based on your backend route
       providesTags: ["User"],
     }),
-    addUser: builder.mutation<IUsers, Partial<IUsers>>({
+    addUser: builder.mutation<IUser, Partial<IUser>>({
       query: (newUser) => ({
         url: "users/signup",
         method: "POST",
@@ -62,7 +62,7 @@ export const todoApi = createApi({
       }),
       invalidatesTags: ["User"],
     }),
-    getOneUser: builder.query<IUsers, string>({
+    getOneUser: builder.query<IUser, string>({
       query: (id) => `users/${id}`,
       providesTags: ["User"],
     }),
@@ -74,7 +74,7 @@ export const todoApi = createApi({
       }),
       invalidatesTags: ["User"],
     }),
-    updateUser: builder.mutation<IUsers, { id: string; body: Partial<IUsers> }>(
+    updateUser: builder.mutation<IUser, { id: string; body: Partial<IUser> }>(
       {
         query: ({ id, body }) => ({
           url: `users/${id}`,

@@ -3,7 +3,7 @@ export interface ITasks {
   title: string;
   isCompleted: boolean;
 }
-export interface s {
+export interface IUser {
   _id: string | number;
   username: string;
   email: string;

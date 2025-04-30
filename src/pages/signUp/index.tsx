@@ -1,14 +1,14 @@
 // src/pages/SignupPage.tsx
 import React, { useState, FormEvent } from "react";
 import { useNavigate } from "react-router";
-import { IUsers } from "../../types";
 import { useAddUserMutation } from "../../services";
+import { IUser } from "../../types";
 
 const SignupPage: React.FC = () => {
   const navigate = useNavigate();
   const [addUser, { isLoading, error }] = useAddUserMutation();
 
-  const [formData, setFormData] = useState<Partial<IUsers>>({
+  const [formData, setFormData] = useState<Partial<IUser>>({
     username: "",
     email: "",
     password: "",
